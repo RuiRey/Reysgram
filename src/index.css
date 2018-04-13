@@ -1,0 +1,106 @@
+body{
+  padding-top: 70px;
+  background: #110F1F;
+  color: white;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color: #fff;
+}
+.navbar-inverse .navbar-brand{
+  color: white;
+}
+
+.navbar-inverse {
+  background: #601029;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.navbar-brand>.App-logo {
+  display: inline-block;
+  animation: App-logo-spin infinite 20s linear;
+  width: 35px;
+}
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.author{
+  color:	#93253D;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: underline
+}
+
+.threebtn{
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.likebtn:hover, .likebtn:active, .likebtn:focus{
+  color: white;
+  background: #93253D;
+  outline: none;
+}
+
+.comment{
+  color: #110F1F;
+  text-indent: 15px;
+  padding: 0.6rem 0;
+}
+.comment p{
+  font-size: 1.8rem;
+    margin: 0;
+}
+.comment strong{
+  color: #93253D;
+    margin-right: 5px;
+    font-size: 2.2rem;
+}
+.comment:hover .remove-comment{
+  opacity: 1;
+}
+
+.remove-comment{
+  background: none;
+  border :0;
+  line-height: 1;
+  opacity: 0;
+}
+.remove-comment:hover{
+  color: red;
+}
+
+.signuploginform{
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 800px;
+  outline: none;
+}
+
+.btn-danger{
+  background-color:#93253D; 
+  outline: none;
+  border: none;
+}
+
+
+.btn-primary{
+  background-color:#233062;
+}
+
+.singlephoto{
+  margin: 0 auto 80px auto;
+  max-width: 820px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.thumbnail {
+  height: 95%;
+}
