@@ -45,18 +45,40 @@ class Photo extends React.Component{
 
         const renderLikeList = (uid, i)=>{
             if(this.props.match && this.props.match.path === "/view/:authorUid/:postId"){
-                if(i < 5){
+                if(i < likeCount-2){
                     return(
-                        <a href={`/home/${uid}`} className="author">
-                            {post.likes[uid] + ", "}
-                        </a>
+                        <span>
+                            <a href={`/home/${uid}`}>
+                                {post.likes[uid]}
+                            </a>
+                        , </span>
+                    );
+                }else if(i === likeCount-2){
+                    return(
+                            <a href={`/home/${uid}`} >
+                                {post.likes[uid]}
+                            </a>
+                    );
+                }else if(likeCount===1){
+                    return(
+                        <React.Fragment>
+                            <a href={`/home/${uid}`} >
+                                {post.likes[uid]}
+                            </a>
+                            <span> like this </span>
+                        </React.Fragment>
+                    );
+                }else {
+                    return(
+                        <React.Fragment>
+                        <span> and </span>
+                            <a href={`/home/${uid}`} >
+                                {post.likes[uid]}
+                            </a>
+                            <span> like this </span>
+                        </React.Fragment>
                     );
                 }
-                return(
-                    <p>
-                        User: {Object.keys(post.likes).map((uid)=>post.likes[uid] + '. ')} likes this photo
-                    </p>
-                );
             } 
         }
 
@@ -71,7 +93,9 @@ class Photo extends React.Component{
                     <a href={`/home/${post.authorUid}`} className="author">
                         Author: {post.author}
                     </a>
-                    {likeList}
+                    <p>
+                        {likeList}
+                    </p> 
                     <h3>{post.caption}</h3>
                     <p>
                         {renderLikeButton()} 
