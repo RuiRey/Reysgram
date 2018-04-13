@@ -42,46 +42,45 @@ class Photo extends React.Component{
                 );
             }
         }
-        // const likeList = Object.keys(post.likes).map((uid)=>post.likes[uid] + '. ')
 
-        // const renderWhoLikesPhoto = ()=>{
-        //     if(this.props.match && this.props.match.path === "/view/:authorUid/:postId"){
-        //         return(
-        //             <p>
-        //                 User: {Object.keys(post.likes).map((uid)=>post.likes[uid] + '. ')} likes this photo
-        //             </p>
-        //         );
-        //     }
-            
-        // }
+        const renderLikeList = (uid, i)=>{
+            if(this.props.match && this.props.match.path === "/view/:authorUid/:postId"){
+                if(i < 5){
+                    return(
+                        <a href={`/home/${uid}`} className="author">
+                            {post.likes[uid] + ", "}
+                        </a>
+                    );
+                }
+                return(
+                    <p>
+                        User: {Object.keys(post.likes).map((uid)=>post.likes[uid] + '. ')} likes this photo
+                    </p>
+                );
+            } 
+        }
 
-
-
+        const likeList = post.likes ? Object.keys(post.likes).map((uid, i)=>renderLikeList(uid, i)) : null;
+        
         return(
             <React.Fragment>
-
                 <a href={`/view/${post.authorUid}/${postId}`} >
                     <img className="img-rounded" src={post.display_src} alt={post.caption}/>
                 </a>
-
                 <div className="caption">
                     <a href={`/home/${post.authorUid}`} className="author">
                         Author: {post.author}
                     </a>
-                    {/* {renderWhoLikesPhoto()}  */}
+                    {likeList}
                     <h3>{post.caption}</h3>
-                    
                     <p>
                         {renderLikeButton()} 
                         <a href={`/view/${post.authorUid}/${postId}`} class="threebtn btn btn-primary" role="button">
                             Comments:{' '}{commentL}
                         </a>
                         {renderDeleteButton()}
-                    </p>
-                        
-                    
+                    </p>                    
                 </div>
-
             </React.Fragment>
         );
     }
