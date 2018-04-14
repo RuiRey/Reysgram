@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { firebaseConnect } from 'react-redux-firebase'
-
-
 import Header from './Header';
 
 class Login extends React.Component{
@@ -21,7 +19,11 @@ class Login extends React.Component{
             this.props.firebase.login({
                 email: this.refs.email.value,
                 password: this.refs.password.value,
-              }).catch(err =>alert(err));
+              }).catch(err =>{
+                  alert(err);
+                  this.refs.email.value="";
+                  this.refs.password.value="";
+              });
         }
         return(
             <React.Fragment>

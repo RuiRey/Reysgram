@@ -99,7 +99,7 @@ class Photo extends React.Component{
                     <h3>{post.caption}</h3>
                     <p>
                         {renderLikeButton()} 
-                        <a href={`/view/${post.authorUid}/${postId}`} class="threebtn btn btn-primary" role="button">
+                        <a href={`/view/${post.authorUid}/${postId}`} className="threebtn btn btn-primary" role="button">
                             Comments:{' '}{commentL}
                         </a>
                         {renderDeleteButton()}
