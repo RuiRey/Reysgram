@@ -1,18 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { compose } from 'redux'
 import { firebaseConnect } from 'react-redux-firebase'
-//import './signUp.css';
 import Header from './Header';
+
 class SignUp extends React.Component{
     render(){
         const signUp = (e)=>{
-            //e.preventDefault();
+            e.preventDefault();
             const createNewUser = ({ email, password, username }) => {
                 this.props.firebase.createUser(
                   { email, password },
                   { username, email }
                 ).catch((err) => {
                     alert(err);
-                    this.props.history.push(`/signup`);
+                    this.refs.email.value="";
+                    this.refs.password.value="";
+                    this.refs.userName.value="";
                 });
               }
             createNewUser({
@@ -21,11 +25,12 @@ class SignUp extends React.Component{
                 username: this.refs.userName.value,
               })
             }
-
-        const onSubmit = (e)=>{
-            e.preventDefault();
-            this.props.history.push(`/`);
-        }
+        const checkLogin = ()=>{
+          if(this.props.auth.uid){
+              this.props.history.push(`/home/${this.props.auth.uid}`);
+          }
+      }
+      checkLogin();
 
         return(
             <React.Fragment>
@@ -33,7 +38,7 @@ class SignUp extends React.Component{
                 <div className="container">
                 <div className="signuploginform">
                     <p><h3>Sign UP</h3> Set up your Username and Password</p> 
-                    <form onSubmit={onSubmit} className="form-horizontal">
+                    <form className="form-horizontal">
                       <div className="form-group">
                         <label for="signupEmail" className="col-sm-2 control-label">Email</label>
                         <div className="col-sm-10">
@@ -69,6 +74,10 @@ class SignUp extends React.Component{
     }
 }
 
-
-
-export default firebaseConnect()(SignUp);
+export default compose(
+  firebaseConnect(),
+  connect((state) => ({
+      auth: state.firebase.auth,
+      profile: state.firebase.profile,
+  }))
+)(SignUp);
