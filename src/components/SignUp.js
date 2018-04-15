@@ -36,7 +36,7 @@ class SignUp extends React.Component{
             <React.Fragment>
                 <Header/>
                 <div className="container">
-                <div className="signuploginform">
+                <div className="forminmyweb">
                     <p><h3>Sign UP</h3> Set up your Username and Password</p> 
                     <form className="form-horizontal">
                       <div className="form-group">

@@ -15,10 +15,16 @@ class Header extends Component {
           if(this.props.auth.uid){
               return(
                 <React.Fragment>
-                  <li><a href={`/home/${this.props.auth.uid}`}>Welcome: {this.props.profile.username}</a></li>
-                      {/*Welcome
-                      <a href={`/home/${this.props.auth.uid}`}>{this.props.profile.username}</a> 
-                       <a href="/" onClick={logOut}>Log out</a> */}
+                  <li><a href={`/home/${this.props.auth.uid}`}>Welcome: {this.props.profile.username} <span className="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
+                   
+                   <li className="dropdown">
+                        <a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"               aria-expanded="false">Edit Profile <span className="caret"></span></a>
+                        <ul className="dropdown-menu">
+                          <li><a href={`/editprofile/${this.props.auth.uid}`}>Edit Profile</a></li>
+                          <li><a href="#">Change Password</a></li>
+                        </ul>
+                      </li>
+
                   <li><a href="/" onClick={logOut}>Log Out <span className="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>
                 </React.Fragment>
               );

@@ -73,7 +73,7 @@ body{
   color: red;
 }
 
-.signuploginform{
+.forminmyweb{
   color: white;
   text-align: center;
   margin: 0 auto;
@@ -103,4 +103,15 @@ body{
 }
 .thumbnail {
   height: 95%;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+}
+
+.editForm{
+  background: white;
+  color: #110F1F;
 }

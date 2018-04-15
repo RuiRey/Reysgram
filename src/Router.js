@@ -5,6 +5,7 @@ import Single from './components/Single';
 import Author from './components/Author';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
+import EditProfile from "./components/EditProfile";
 
 function Router() {
 	return (
@@ -19,7 +20,7 @@ function Router() {
 							on the forward slash'/' */}
 				 <Route path="/view/:authorUid/:postId" component={Single}></Route>
 
-				{/*<Route path="/:author" component={Author}></Route> */}
+				<Route path="/editprofile/:authorUid" component={EditProfile}></Route>
 
 				<Route path="/signup" component={SignUp}></Route>
 				<Route path="/login" component={Login}></Route>

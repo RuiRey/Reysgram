@@ -23,7 +23,7 @@ class AddNewPhoto extends React.Component{
         
         return(
              <div className="container">
-             <div className="signuploginform">
+             <div className="forminmyweb">
                 <h3>Add New Photo</h3>
                 <form ref="photoForm" className="form-horizontal">
                   <div className="form-group">

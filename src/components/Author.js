@@ -27,7 +27,10 @@ const Author = ({ firebase, posts, auth, profile, history, match }) =>{
     const renderAddNewPhoto=()=>{
         if(auth.uid && auth.uid === match.params.userId){
             return(
-                <AddNewPhoto auth={auth} profile={profile} />
+                <React.Fragment>
+                    <AddNewPhoto auth={auth} profile={profile} />
+                    <hr/>
+                </React.Fragment>
             );
         }
     }
