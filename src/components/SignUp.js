@@ -40,21 +40,21 @@ class SignUp extends React.Component{
                     <p><h3>Sign UP</h3> Set up your Username and Password</p> 
                     <form className="form-horizontal">
                       <div className="form-group">
-                        <label for="signupEmail" className="col-sm-2 control-label">Email</label>
+                        <label htmlFor="signupEmail" className="col-sm-2 control-label">Email</label>
                         <div className="col-sm-10">
                           <input type="email" ref="email" className="form-control" id="signupEmail" placeholder="Email" />
                         </div>
                       </div>
 
                       <div className="form-group">
-                        <label for="signupUserName" className="col-sm-2 control-label">Username</label>
+                        <label htmlFor="signupUserName" className="col-sm-2 control-label">Username</label>
                         <div className="col-sm-10">
                           <input type="text" ref="userName" className="form-control" id="signupUserName" placeholder="Name" />
                         </div>
                       </div>
 
                       <div className="form-group">
-                        <label for="signupPassword" className="col-sm-2 control-label">Password</label>
+                        <label htmlFor="signupPassword" className="col-sm-2 control-label">Password</label>
                         <div className="col-sm-10">
                           <input type="password" ref="password" className="form-control" id="signupPassword" placeholder="Password" />
                         </div>

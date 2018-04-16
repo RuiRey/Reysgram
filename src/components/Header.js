@@ -18,9 +18,9 @@ class Header extends Component {
                   <li><a href={`/home/${this.props.auth.uid}`}>Welcome: {this.props.profile.username} <span className="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
                    
                    <li className="dropdown">
-                        <a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"               aria-expanded="false">Edit Profile <span className="caret"></span></a>
+                        <a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Your Profile <span className="caret"></span></a>
                         <ul className="dropdown-menu">
-                          <li><a href={`/editprofile/${this.props.auth.uid}`}>Edit Profile</a></li>
+                          <li><a href={`/editprofile/${this.props.auth.uid}`}>Edit Your Profile</a></li>
                           <li><a href="#">Change Password</a></li>
                         </ul>
                       </li>

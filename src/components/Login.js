@@ -33,13 +33,13 @@ class Login extends React.Component{
                     <h3>Login Please</h3>
                     <form className="form-horizontal">
                       <div className="form-group">
-                        <label for="loginEmail" className="col-sm-2 control-label">Email</label>
+                        <label htmlFor="loginEmail" className="col-sm-2 control-label">Email</label>
                         <div className="col-sm-10">
                           <input type="email" ref="email" className="form-control" id="loginEmail" placeholder="Email" />
                         </div>
                       </div>
                       <div className="form-group">
-                        <label for="loginPassword" className="col-sm-2 control-label">Password</label>
+                        <label htmlFor="loginPassword" className="col-sm-2 control-label">Password</label>
                         <div className="col-sm-10">
                           <input type="password" ref="password" className="form-control" id="loginPassword" placeholder="Password" />
                         </div>

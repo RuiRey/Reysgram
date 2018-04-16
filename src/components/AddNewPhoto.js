@@ -27,14 +27,14 @@ class AddNewPhoto extends React.Component{
                 <h3>Add New Photo</h3>
                 <form ref="photoForm" className="form-horizontal">
                   <div className="form-group">
-                    <label for="Caption" className="col-sm-2 control-label">Caption</label>
+                    <label htmlFor="Caption" className="col-sm-2 control-label">Caption</label>
                     <div className="col-sm-10">
                       <input type="text" ref="caption" className="form-control" id="Caption" placeholder="Caption" />
                     </div>
                   </div>
 
                   <div className="form-group">
-                    <label for="photoUrl" className="col-sm-2 control-label">Photo URL</label>
+                    <label htmlFor="photoUrl" className="col-sm-2 control-label">Photo URL</label>
                     <div className="col-sm-10">
                       <input type="text" ref="url" className="form-control" id="photoUrl" placeholder="Photo URL" />
                     </div>

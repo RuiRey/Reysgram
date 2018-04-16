@@ -111,7 +111,13 @@ hr {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
 }
 
-.editForm{
-  background: white;
-  color: #110F1F;
+.jumbotron{
+  text-align: center;
+  max-width: 800px;
+  margin: 50px auto;
+  background: #110F1F;
+}
+
+.gohomebtn{
+  margin-top: 30px;
 }

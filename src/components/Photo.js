@@ -31,13 +31,13 @@ class Photo extends React.Component{
             if(auth.uid){
                 return(
                     <button onClick={likePhoto} className=" threebtn btn btn-danger" >
-                        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> {likeCount}
+                        <span className="glyphicon glyphicon-heart" aria-hidden="true"></span> {likeCount}
                     </button>
                 );
             }else{
                 return(
                     <button disabled="disabled" className=" threebtn btn btn-danger" >
-                        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> {likeCount}
+                        <span className="glyphicon glyphicon-heart" aria-hidden="true"></span> {likeCount}
                     </button>
                 );
             }
