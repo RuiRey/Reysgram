@@ -20,6 +20,7 @@ class EditProfile extends React.Component{
             <Header/>
             <div className="container">
                 <div class="jumbotron">
+                    <h2>Yout Profile</h2>
                     <h3>Email: {profile.email}</h3>
                     <h3>Username: {profile.username}</h3>
                     {!!profile.phoneNumber && (
