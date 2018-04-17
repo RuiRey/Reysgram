@@ -21,7 +21,7 @@ class Header extends Component {
                         <a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Your Profile <span className="caret"></span></a>
                         <ul className="dropdown-menu">
                           <li><a href={`/editprofile/${this.props.auth.uid}`}>Edit Your Profile</a></li>
-                          <li><a href="#">Change Password</a></li>
+                          <li><a href={`/changepassword/${this.props.auth.uid}`}>Change Password</a></li>
                         </ul>
                       </li>
 

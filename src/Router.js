@@ -6,6 +6,7 @@ import Author from './components/Author';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import EditProfile from "./components/EditProfile";
+import ChangePassword from "./components/ChangePassword";
 
 function Router() {
 	return (
@@ -21,6 +22,7 @@ function Router() {
 				 <Route path="/view/:authorUid/:postId" component={Single}></Route>
 
 				<Route path="/editprofile/:authorUid" component={EditProfile}></Route>
+				<Route path="/changepassword/:authorUid" component={ChangePassword}></Route>
 
 				<Route path="/signup" component={SignUp}></Route>
 				<Route path="/login" component={Login}></Route>
