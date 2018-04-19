@@ -31,6 +31,9 @@ class Login extends React.Component{
                 <div className="container">
                 <div className="forminmyweb">
                     <h3>Login Please</h3>
+                    <p>or</p> 
+                    <a href='/resetpassword' className="resetpassword">Forgot Password?</a>
+                    <hr/>
                     <form className="form-horizontal">
                       <div className="form-group">
                         <label htmlFor="loginEmail" className="col-sm-2 control-label">Email</label>
@@ -47,10 +50,9 @@ class Login extends React.Component{
                         
                       <div className="form-group">
                         <div className="col-sm-offset-2 col-sm-10">
-                          <button onClick={logIn} type="submit" className="btn btn-danger btn-lg btn-block">Sign in</button>
+                          <button onClick={logIn} type="submit" className="btn btn-danger btn-lg btn-block">Login</button>
                         </div>
                       </div>
-                      <a href='/resetpassword' className="resetpassword">Forgot Password?</a>
                     </form>
                 </div>
                 </div>

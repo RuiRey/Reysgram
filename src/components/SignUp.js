@@ -37,7 +37,9 @@ class SignUp extends React.Component{
                 <Header/>
                 <div className="container">
                 <div className="forminmyweb">
-                    <p><h3>Sign UP</h3> Set up your Username and Password</p> 
+                    <h3>Sign UP</h3>
+                    <p> Set up your Username and Password</p>
+                    <hr/>
                     <form className="form-horizontal">
                       <div className="form-group">
                         <label htmlFor="signupEmail" className="col-sm-2 control-label">Email</label>
@@ -62,7 +64,7 @@ class SignUp extends React.Component{
                         
                       <div className="form-group">
                         <div className="col-sm-offset-2 col-sm-10">
-                          <button onClick={signUp} type="submit" className="btn btn-danger btn-lg btn-block">Sign in</button>
+                          <button onClick={signUp} type="submit" className="btn btn-danger btn-lg btn-block">Sign Up</button>
                         </div>
                       </div>
                     </form>
