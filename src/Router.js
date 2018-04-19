@@ -7,6 +7,7 @@ import SignUp from './components/SignUp';
 import Login from './components/Login';
 import EditProfile from "./components/EditProfile";
 import ChangePassword from "./components/ChangePassword";
+import ResetPassword from "./components/ResetPassword";
 
 function Router() {
 	return (
@@ -25,6 +26,7 @@ function Router() {
 				<Route path="/changepassword/:authorUid" component={ChangePassword}></Route>
 
 				<Route path="/signup" component={SignUp}></Route>
+				<Route path="/resetpassword" component={ResetPassword}></Route>
 				<Route path="/login" component={Login}></Route>
 			</Switch>
 		</BrowserRouter>

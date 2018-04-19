@@ -121,3 +121,26 @@ hr {
 .gohomebtn{
   margin-top: 30px;
 }
+
+.resetpassword{
+  color: white;
+  padding-left: 130px;
+}
+.resetpassword:hover{
+  color: white;
+  padding-left: 130px;
+}
+
+.resetpasswordform{
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 500px;
+  outline: none;
+}
+
+.resetpasswordform>p{
+  text-indent: 80px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

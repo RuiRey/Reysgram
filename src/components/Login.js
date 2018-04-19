@@ -50,6 +50,7 @@ class Login extends React.Component{
                           <button onClick={logIn} type="submit" className="btn btn-danger btn-lg btn-block">Sign in</button>
                         </div>
                       </div>
+                      <a href='/resetpassword' className="resetpassword">Forgot Password?</a>
                     </form>
                 </div>
                 </div>
