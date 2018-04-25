@@ -3,37 +3,17 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { firebaseConnect } from 'react-redux-firebase'
+//import SingleComment from './SingleComment';
+import App from './App';
 
-class Comments extends React.Component{
-
-  renderDelectButton=(comment, userId )=>{
-    if((this.props.auth.uid) && (this.props.auth.uid === this.props.post.authorUid || this.props.auth.uid === userId )){
-      return(
-        <button onClick={()=>this.props.firebase.remove(`/posts/${this.props.post.authorUid}/${this.props.postId}/comments/${comment}`)} className="remove-comment">&times;</button>
-      );
-    }
-  }
-
-  renderComment=(comment, i)=>{
-    let {post} = this.props;
-        return (
-          <div className="comment" key={i}>
-            <p>
-              <strong>{post.comments[comment].user}</strong>
-              {post.comments[comment].text}
-              {this.renderDelectButton(comment, post.comments[comment].userId)}
-            </p>
-          </div>
-        )
-      };
-    
+class Comments extends React.Component{    
   renderInputComment=()=>{
     if(this.props.auth.uid){
       return(
         <form ref="commentForm" className="form-horizontal" onSubmit={this.handleSubmit}>
-        <div class="form-group">
-          <div class="col-sm-10">
-            <input type="text" ref="comment" class="form-control" placeholder="Add Comment" />
+        <div className="form-group">
+          <div className="col-sm-10">
+            <input type="text" ref="comment" className="form-control" placeholder="Add Comment" />
           </div>
         </div>
         <input type="submit" hidden />
@@ -41,7 +21,6 @@ class Comments extends React.Component{
       );
     }
   }
-
 
 handleSubmit= (e) => {
         e.preventDefault();
@@ -55,14 +34,17 @@ handleSubmit= (e) => {
 };
   
   render() {
-    const { post } = this.props;
-    const commentList = post.comments ? Object.keys(post.comments).map((comment, i)=>this.renderComment(comment, i)) : null;
+    const { post, postId } = this.props;
+    const commentList = post.comments ? Object.keys(post.comments).map((comment, i)=>{
+      return(
+        <App comment={comment} key={i} post={post} postId={postId}/>
+      );
+    }) : null;
 
     return (
       <div className="comments">
         {commentList}
         {this.renderInputComment()}
-
       </div>
     )
   }

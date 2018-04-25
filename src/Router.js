@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import PhotoGrid from './components/PhotoGrid';
 import Single from './components/Single';
+//import App from './components/App';
 import Author from './components/Author';
 import SignUp from './components/SignUp';
 import Login from './components/Login';

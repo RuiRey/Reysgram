@@ -5,11 +5,12 @@ import Router from './Router';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import store from './store';
-//import './components/App.css';
 import './index.css'
 
+import localStore from './store';
+
 ReactDOM.render(
-    <Provider store={store}>
+    <Provider store={store} localStore={localStore}>
         <Router />
     </Provider>
 ,
