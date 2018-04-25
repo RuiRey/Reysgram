@@ -136,3 +136,8 @@ hr {
   max-width: 500px;
   outline: none;
 }
+
+.replyform{
+  display: inline-flex;
+  max-width: 200px;
+}

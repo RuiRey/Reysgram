@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { firebaseConnect, isLoaded, isEmpty,getVal } from 'react-redux-firebase'
 
-const Single =({posts, firebase,match, auth, profile, history}) => {
+const Single =({posts, firebase,match, auth, profile, history, comments, replyComment}) => {
     const postId = match.params.postId;
     const authorUid = match.params.authorUid;
     const singlePhoto = !isLoaded(posts)
@@ -20,7 +20,10 @@ const Single =({posts, firebase,match, auth, profile, history}) => {
                             return( 
                                     <React.Fragment key={index}>
                                         <Photo match={match} index={index} post={posts[authorUid][post]} postId={post} />
-                                        <Comments post={posts[authorUid][post]} postId={post}/>
+                                        <Comments 
+                                            post={posts[authorUid][post]} 
+                                            postId={post}
+                                        />
                                     </React.Fragment>
                             );
                         }

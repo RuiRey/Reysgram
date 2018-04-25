@@ -41,3 +41,9 @@ const store = createStoreWithFirebase(rootReducer, defaultState);
 //const store = createStore(rootReducer, defaultState)
 
 export default store;
+
+const localState = {
+
+}
+
+export const localStore = createStore(rootReducer,localState);
