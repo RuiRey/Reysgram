@@ -4,6 +4,7 @@
 - Technologies used: React, Redux, Bootstrap, Firebase.
 
 # Features
+
 - Sign Up
 - Login
 - Logout
@@ -15,3 +16,4 @@
 - Add Comment
 - Delete Your Own Comment
 - Edit Your Profile
+- Add a Redux-Store for comment reply and delete
