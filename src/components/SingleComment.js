@@ -61,7 +61,7 @@ renderComment=(singleReply, i)=>{
     const {post, comment} = this.props; 
     return (
         <div className="comment" key={i}>
-          <p>
+          <p className="replycomment">
             <strong>{singleReply.user}</strong> reply <strong>{post.comments[comment].user}</strong>
             : {singleReply.text}
             <button className="remove-comment" onClick={()=>this.handleDelete(i)}>&times;</button>
