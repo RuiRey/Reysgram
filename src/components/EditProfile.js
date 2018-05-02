@@ -5,21 +5,45 @@ import { firebaseConnect } from 'react-redux-firebase';
 import Header from './Header';
 
 class EditProfile extends React.Component{
+    constructor (props){
+        super(props);
+        this.state = {
+            username: props.profile.username,
+            phoneNumber: props.profile.phoneNumber,
+            gender: props.profile.gender
+        }
+    }
+
+    componentWillReceiveProps(props) {
+        this.setState({
+            username: props.profile.username,
+            phoneNumber: props.profile.phoneNumber,
+            gender: props.profile.gender
+        });
+    }
+    
     
     render(){
         const {firebase, auth, profile}=this.props;
-
+   
         const handleChange = (e)=>{
-             firebase.updateProfile({
-                 [e.currentTarget.name] : e.currentTarget.value,
-             });
+            this.setState({[e.target.name]: e.target.value});
+        }
+
+        const handleEditProfile=(e)=>{
+            e.preventDefault();
+            firebase.updateProfile({
+                username: this.state.username,
+                phoneNumber: this.state.phoneNumber,
+                gender: this.state.gender
+            })
         }
         
         return(
             <React.Fragment>
             <Header/>
             <div className="container">
-                <div class="jumbotron">
+                <div className="jumbotron">
                     <h2>Yout Profile</h2>
                     <h3>Email: {profile.email}</h3>
                     <h3>Username: {profile.username}</h3>
@@ -29,7 +53,7 @@ class EditProfile extends React.Component{
                     {!!profile.gender && (
                         <h3>Gender: {profile.gender}</h3>
                     )}
-                    <p><a class="btn btn-danger btn-lg gohomebtn" href={`/home/${auth.uid}`} role="button">Go Back to Your Home Page</a></p>
+                    <p><a className="btn btn-danger btn-lg gohomebtn" href={`/home/${auth.uid}`} role="button">Go Back to Your Home Page</a></p>
                 </div>
                 <hr/>
                 <div className="forminmyweb">
@@ -39,27 +63,33 @@ class EditProfile extends React.Component{
                         <div className="form-group">
                             <label htmlFor="Username" className="col-sm-2 control-label">New Username</label>
                             <div className="col-sm-10">
-                            <input onChange={handleChange} placeholder={profile.username} type="text" name="username" className="form-control" id="Username" />
+                            <input onChange={handleChange} value={this.state.username} type="text" name="username" className="form-control" id="Username" />
                             </div>
                         </div>
 
                         <div className="form-group"> 
                             <label htmlFor="phoneNumber" className="col-sm-2 control-label">Phone Number</label>
                             <div className="col-sm-10">
-                            <input onChange={handleChange} placeholder={profile.phoneNumber || ''} type="number" name="phoneNumber" className="form-control" id="phoneNumber" />
+                            <input onChange={handleChange} value={this.state.phoneNumber || ''} type="number" name="phoneNumber" className="form-control" id="phoneNumber" />
                             </div>
                         </div>
 
                         <div className="form-group">
                         <label htmlFor="gender" className="col-sm-2 control-label">Gender</label>
                         <div className="col-sm-10">
-                          <select onChange={handleChange} placeholder={profile.gender || ''} name="gender" className="form-control" id="gender">
+                          <select onChange={handleChange} value={this.state.gender || ''} name="gender" className="form-control" id="gender">
                             <option></option>
                             <option>Male</option>
                             <option>Female</option>
                             <option>Secret</option>
                           </select>
                         </div>
+                        </div>
+
+                        <div className="form-group">
+                          <div className="col-sm-offset-2 col-sm-10">
+                            <button onClick={handleEditProfile} type="submit" className="btn btn-danger btn-lg btn-block">Submit</button>
+                          </div>
                         </div>
                            
                     </form>
@@ -75,13 +105,13 @@ export default compose(
         [
            {path: 'users/'},
            {path: 'users/'},
-           //{path: `posts/`},
+           //{path: `users/`},
        ]
        
     ),
     connect((state) => ({
         auth: state.firebase.auth,
         profile: state.firebase.profile,
-        //posts: state.firebase.data.posts,
+        //users: state.firebase.data.users,
     }))
   )(EditProfile);
