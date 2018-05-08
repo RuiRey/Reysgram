@@ -8,7 +8,11 @@ class SignUp extends React.Component{
     render(){
         const signUp = (e)=>{
             e.preventDefault();
-            const createNewUser = ({ email, password, username }) => {
+            if (this.props.usernames && Object.keys(this.props.usernames).includes(this.refs.userName.value)) {
+              alert("This Username is already taken. Please use another Username!");
+              this.refs.userName.value="";
+            }else{
+              const createNewUser = ({ email, password, username }) => {
                 this.props.firebase.createUser(
                   { email, password },
                   { username, email }
@@ -23,10 +27,12 @@ class SignUp extends React.Component{
                 email: this.refs.email.value,
                 password: this.refs.password.value,
                 username: this.refs.userName.value,
-              })
-            }
+              }); 
+            }  
+        }
         const checkLogin = ()=>{
           if(this.props.auth.uid){
+            this.props.firebase.set(`/usernames/${this.refs.userName.value}`, this.props.auth.uid);
               this.props.history.push(`/home/${this.props.auth.uid}`);
           }
       }
@@ -51,7 +57,7 @@ class SignUp extends React.Component{
                       <div className="form-group">
                         <label htmlFor="signupUserName" className="col-sm-2 control-label">Username</label>
                         <div className="col-sm-10">
-                          <input type="text" ref="userName" className="form-control" id="signupUserName" placeholder="Name" />
+                          <input type="text" ref="userName" className="form-control" id="signupUserName" placeholder="Username" />
                         </div>
                       </div>
 
@@ -77,9 +83,16 @@ class SignUp extends React.Component{
 }
 
 export default compose(
-  firebaseConnect(),
+  firebaseConnect((props)=>
+    [
+      {path: 'users/'},
+      {path: 'users/'},
+      {path: `usernames/`},
+    ]
+  ),
   connect((state) => ({
       auth: state.firebase.auth,
       profile: state.firebase.profile,
+      usernames: state.firebase.data.usernames,
   }))
 )(SignUp);

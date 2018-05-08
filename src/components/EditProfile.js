@@ -17,8 +17,8 @@ class EditProfile extends React.Component{
     componentWillReceiveProps(props) {
         this.setState({
             username: props.profile.username,
-            phoneNumber: props.profile.phoneNumber,
-            gender: props.profile.gender
+            phoneNumber: props.profile.phoneNumber || "",
+            gender: props.profile.gender || ""
         });
     }
     
@@ -32,11 +32,25 @@ class EditProfile extends React.Component{
 
         const handleEditProfile=(e)=>{
             e.preventDefault();
-            firebase.updateProfile({
-                username: this.state.username,
-                phoneNumber: this.state.phoneNumber,
-                gender: this.state.gender
-            })
+           if(this.state.username === profile.username) {
+                firebase.updateProfile({
+                    username: this.state.username,
+                    phoneNumber: this.state.phoneNumber,
+                    gender: this.state.gender
+                });
+            }else if (Object.keys(this.props.usernames).includes(this.state.username)) {
+                alert("This Username is already taken. Please use another Username!");
+            } else {
+                firebase.remove(`/usernames/${profile.username}/`);
+                firebase.set(`/usernames/${this.state.username}/`, auth.uid);
+                firebase.updateProfile({
+                    username: this.state.username,
+                    phoneNumber: this.state.phoneNumber,
+                    gender: this.state.gender
+                });
+                
+            }
+            
         }
         
         return(
@@ -44,7 +58,7 @@ class EditProfile extends React.Component{
             <Header/>
             <div className="container">
                 <div className="jumbotron">
-                    <h2>Yout Profile</h2>
+                    <h2 className="title">Your Profile</h2>
                     <h3>Email: {profile.email}</h3>
                     <h3>Username: {profile.username}</h3>
                     {!!profile.phoneNumber && (
@@ -57,7 +71,7 @@ class EditProfile extends React.Component{
                 </div>
                 <hr/>
                 <div className="forminmyweb">
-                    <h3>Edit Your Profile</h3>
+                    <h3 className="title">Edit Your Profile</h3>
                     <form className="form-horizontal">
 
                         <div className="form-group">
@@ -88,7 +102,7 @@ class EditProfile extends React.Component{
 
                         <div className="form-group">
                           <div className="col-sm-offset-2 col-sm-10">
-                            <button onClick={handleEditProfile} type="submit" className="btn btn-danger btn-lg btn-block">Submit</button>
+                            <input onClick={handleEditProfile} type="submit" className="btn btn-danger btn-lg btn-block"/>
                           </div>
                         </div>
                            
@@ -105,13 +119,13 @@ export default compose(
         [
            {path: 'users/'},
            {path: 'users/'},
-           //{path: `users/`},
+           {path: `usernames/`},
        ]
        
     ),
     connect((state) => ({
         auth: state.firebase.auth,
         profile: state.firebase.profile,
-        //users: state.firebase.data.users,
+        usernames: state.firebase.data.usernames,
     }))
   )(EditProfile);
