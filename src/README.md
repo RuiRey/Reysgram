@@ -5,7 +5,7 @@
 
 # Features
 
-- Sign Up (unique username)
+- Sign Up(unique username)
 - Login
 - Logout
 - Change Password
@@ -15,5 +15,5 @@
 - Like Photo
 - Add Comment
 - Delete Your Own Comment
-- Edit Your Profile (unique username)
+- Edit Your Profile(unique username)
 - Add a Redux-Store for comment reply and delete
