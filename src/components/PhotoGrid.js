@@ -13,7 +13,7 @@ const PhotoGrid = ({ history,auth, posts, firebase, match, profile }) =>{
     const postsList = !isLoaded(posts)
     ? 'Loading'
     : isEmpty(posts)
-        ? 'Photo list is empty'
+        ? 'Come on, join Reysgram and upload your best photos！'
         : Object.keys(posts).map((uid)=>{
             return(Object.keys(posts[uid]).map((post)=>{
                 return(
