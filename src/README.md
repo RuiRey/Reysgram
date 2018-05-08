@@ -5,7 +5,7 @@
 
 # Features
 
-- Sign Up(unique username)
+- Sign Up with unique username
 - Login
 - Logout
 - Change Password
