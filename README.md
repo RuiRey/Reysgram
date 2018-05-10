@@ -18,4 +18,4 @@
 - Edit Your Profile(unique username)
 - Add a Redux-Store for comment reply and delete
 
-# [Demo](https://wangrui1207.000webhostapp.com/)
+# [Demo-Reysgram](https://wangrui1207.000webhostapp.com/){:target="_blank"}
