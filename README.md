@@ -5,7 +5,7 @@
 
 # Features
 
-- Sign Up
+- Sign Up with unique username
 - Login
 - Logout
 - Change Password
@@ -15,5 +15,7 @@
 - Like Photo
 - Add Comment
 - Delete Your Own Comment
-- Edit Your Profile
+- Edit Your Profile(unique username)
 - Add a Redux-Store for comment reply and delete
+
+# [Demo](https://wangrui1207.000webhostapp.com/)
