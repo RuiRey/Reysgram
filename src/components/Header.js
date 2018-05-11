@@ -51,7 +51,7 @@ class Header extends Component {
 	            <span className="icon-bar"></span>
 	          </button>
             {/* <img src={rw} className="App-logo" alt="logo" /> */}
-	    			<a href={"/"} className="navbar-brand"><img src={rw} className="App-logo" alt="logo" /> Reysgram</a>
+	    			<a href={"/"} className="navbar-brand"><img src={rw} className="App-logo" alt="logo" /> Reysgram &nbsp;&nbsp;&nbsp; Home</a>
 	    		</div>
 	    		<div className="collapse navbar-collapse" id="bs-nav-demo">
 	    			<ul className="nav navbar-nav navbar-right">

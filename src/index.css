@@ -114,8 +114,15 @@ hr {
 .jumbotron{
   text-align: center;
   max-width: 800px;
-  margin: 0 auto;
+  margin: -35px auto 0 auto;
   background: #110F1F;
+}
+.jumbotron a{
+  color: #fff;
+  text-decoration: underline;
+}
+.jumbotron a:hover{
+  color: #93253D;
 }
 
 .gohomebtn{
