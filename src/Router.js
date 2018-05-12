@@ -2,13 +2,13 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import PhotoGrid from './components/PhotoGrid';
 import Single from './components/Single';
-//import App from './components/App';
 import Author from './components/Author';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import EditProfile from "./components/EditProfile";
 import ChangePassword from "./components/ChangePassword";
 import ResetPassword from "./components/ResetPassword";
+import Contact from './components/Contact';
 
 function Router() {
 	return (
@@ -29,6 +29,7 @@ function Router() {
 				<Route path="/signup" component={SignUp}></Route>
 				<Route path="/resetpassword" component={ResetPassword}></Route>
 				<Route path="/login" component={Login}></Route>
+				<Route path="/contact" component={Contact}></Route>
 			</Switch>
 		</BrowserRouter>
 	)
