@@ -36,11 +36,11 @@ const Author = ({ firebase, posts, auth, profile, history, match, autherProfile 
     }
 
     const authorName = !isLoaded(autherProfile)
-        ? 'Loading'
+        ? ''
         :isEmpty(autherProfile)
-            ? 'Author list is empty.'
+            ? ''
             : isEmpty(autherProfile[match.params.userId])
-                ? 'Author profile is empty.'
+                ? ''
                 : autherProfile[match.params.userId].username
     
     const renderJumbotron = ()=>{
