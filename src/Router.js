@@ -9,6 +9,7 @@ import EditProfile from "./components/EditProfile";
 import ChangePassword from "./components/ChangePassword";
 import ResetPassword from "./components/ResetPassword";
 import Contact from './components/Contact';
+import NotFound from './components/NotFound';
 
 function Router() {
 	return (
@@ -30,6 +31,7 @@ function Router() {
 				<Route path="/resetpassword" component={ResetPassword}></Route>
 				<Route path="/login" component={Login}></Route>
 				<Route path="/contact" component={Contact}></Route>
+				<Route component={NotFound}></Route>
 			</Switch>
 		</BrowserRouter>
 	)
